@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Risk Assessment Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .result-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .result {
+            font-size: 24px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        .back-button {
+            background: #e94560;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background: #d63551;
+        }
+        .accent-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+        }
+        .blob1 {
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(233, 69, 96, 0.5);
+        }
+        .blob2 {
+            bottom: -100px;
+            right: -100px;
+            width: 250px;
+            height: 250px;
+            background: rgba(41, 128, 185, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="accent-blob blob1"></div>
+    <div class="accent-blob blob2"></div>
+    <div class="result-container">
+        <h1>Diabetes Risk Assessment Result</h1>
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+        <a href="/" class="back-button">Back to Assessment</a>
+    </div>
+</body>
+</html>

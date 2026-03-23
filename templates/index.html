@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Risk Assessment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        input, select {
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 16px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-bottom-color: #e94560;
+        }
+        button {
+            background: #e94560;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #d63551;
+        }
+        .accent-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+        }
+        .blob1 {
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(233, 69, 96, 0.5);
+        }
+        .blob2 {
+            bottom: -100px;
+            right: -100px;
+            width: 250px;
+            height: 250px;
+            background: rgba(41, 128, 185, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="accent-blob blob1"></div>
+    <div class="accent-blob blob2"></div>
+    <div class="form-container">
+        <h1>Diabetes Risk Assessment</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <label for="pregnancy">Number of Pregnancies</label>
+            <input type="number" id="pregnancy" name="pregnancy" required>
+
+            <label for="glucose">Glucose Level (mg/dL)</label>
+            <input type="number" id="glucose" name="glucose" required>
+
+            <label for="bloodpressure">Blood Pressure (mm Hg)</label>
+            <input type="number" id="bloodpressure" name="bloodpressure" required>
+
+            <label for="skinthickness">Skin Thickness (mm)</label>
+            <input type="number" id="skinthickness" name="skinthickness" required>
+
+            <label for="insulin">Insulin Level (mu U/ml)</label>
+            <input type="number" id="insulin" name="insulin" required>
+
+            <label for="bmi">BMI</label>
+            <input type="number" id="bmi" name="bmi" step="0.1" required>
+
+            <label for="diabetesPedigreeFunction">Diabetes Pedigree Function</label>
+            <input type="number" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" step="0.001" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required>
+
+            <button type="submit">Submit Assessment</button>
+        </form>
+    </div>
+</body>
+</html>
