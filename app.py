@@ -33,7 +33,7 @@ def predict():
     reshaped=nparray.reshape(1,-1)
     stddata=loaded_scaler.transform(reshaped)
     pred=model.predict(stddata)
-    if(pred==1):
+    if(pred[0]==1):
         prediction="DIABETIC"
         print(prediction)
     else:
