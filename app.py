@@ -1,6 +1,7 @@
 import numpy as np
 from flask import Flask,request,jsonify,render_template
 import pickle
+import os
 
 #Creating FLASK app
 
@@ -42,4 +43,5 @@ def predict():
     return render_template("result.html", prediction_text=f"THE PERSON MAY BE {prediction}")
     
 if __name__=="__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
